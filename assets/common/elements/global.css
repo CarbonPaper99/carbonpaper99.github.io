@@ -1,0 +1,6 @@
+html body {
+	margin: 0 auto;
+	padding: 0 auto;
+	background-color: rgb(40,41,35);
+}
+.clear {clear: both;}

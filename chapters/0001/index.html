@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Patterns - 00x01 Getting Started 从零开始 | Minecraft Server Help</title>
+		<meta charset="utf-8">
+
+		<link rel="shortcut icon" href="/assets/common/images/patterns.ico">
+
+		<link rel="stylesheet" type="text/css" href="/assets/common/elements/main_text.css">
+		<link rel="stylesheet" type="text/css" href="/assets/common/elements/nav.css">
+		<link rel="stylesheet" type="text/css" href="/assets/common/elements/global.css">
+
+		<script type="text/javascript" src="/assets/outsides/highlights/highlight.pack.js"></script>
+		<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
+		<link rel="stylesheet" type="text/css" href="/assets/outsides/highlights/styles/androidstudio.css">
+	</head>
+	<body>
+		<div id="navigator">
+			<div id="nav_contents">
+				<div id="nav_logo">
+					<a href="/"><span><</span> PATTERNS /<span>></span></a>
+				</div>
+
+				<ul id="nav_item">
+					<li class="nav_items"><a href="/">目录</a></li>
+					<li class="nav_items"><a href="/donate">捐赠</a></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<div id="main">
+			<div id="main_content">
+				<div id="c_header">
+
+					<h1>1 Getting Started | 从零开始</h1>
+
+					<p id="ch_description">#Chapter 00x01  Time: 2021/01/17 00:00:01  世上有三种人，活着的，死了的，和出海的 —— 亚里士多德</p>
+
+					<div class="sever"></div>
+
+				</div>
+
+
+
+				<div id="c_texts">
+
+
+					<p class="quotes">假设你是一位小白，你有一个Minecraft世界，但它文件在你自己的电脑里。现在，你想要这个世界对外开放，与其他玩家共享此世界，怎么办？</p>
+
+					<p>Minecraft倒是有一个自带的功能叫局域网开放，玩家在该世界的游戏界面内点击菜单中局域网开放的按钮就可以将自己的世界开放出去。完成操作后，此世界在你电脑连接的局域网（可以是同一路由器下的有线连接网络，也可以是无线的Wifi）某一个端口开放并存在着。其他玩家所使用的设备可以检索到你的这个世界。这是个很方便的设计，因为简单而易学，网内联机多常使用这个功能。</p>
+
+
+					<p>这种简单的方法实在是傻瓜式的操作，但随着世界规模的发展，一些个人开放者发现仅仅这样做满足不了他们的需求。其一，局域网世界无法长期稳定存在，因为局域网的本体还是Java基础上运行的游戏端，跑起来效率紧追学步车。第二，局域网世界扩展功能仅局限于Mod，但要让每一个连接此世界的玩家安装上相同的Mod更麻烦。第三，规模一旦大，管理也是难事。</p>
+
+
+					<img src="/assets/chapters/images/0001/1.png" width="100%">
+					<center class="img_des">不要用局域网游戏玩大型多人游戏……你的电脑撑不住。</center>
+
+
+					<p>于是Mojang又煞费苦心地开发出一款同样基于Java平台的应用程序，旨在给个人的服务器社区开发者提供性能高效，管理便捷的多人游戏平台解决方案。这类软件在发布后几年时间内迅速成熟，发展出一个庞大的体系。这种软件被称为<span class="bold">Minecraft 服务端（Minecraft Server）</span>。用该软件搭建出来的社区性开放多人游戏称为 Minecraft 服务器。</p>
+
+
+					<p>服务端是独立于游戏的一种应用程序，这表明它可以脱离主机游戏的限制而独立工作。这为大型多人游戏的出现提供了基础。</p>
+
+
+					<p>所以，看到这里你就能想明白了，要想搭建好多人游戏平台，走服务器道路是少不了的。这个社区除了给你带来当管理者的快感<span class="feet_des">♂</span>以外，也能让你在沟通中获得快乐。</p>
+
+
+					<p>如果你想搭建一个服务器，而你一窍不通，你还等什么，现在就开始，从零搭建起一个服务器，Getting Started!</p>
+
+					<div class="sever"></div>
+
+					<p>前面提到，服务端是<span class="bold">一类</span>软件的总称，即代表这种软件有许多变种分支。在这里，我们只需要认识其中几种代表性的服务端。这其中有纯净服务端和扩展型服务端（插件或Mod）等。这些服务端基本涵盖了大部分功能，以下是几个代表：（名称第二行是中文译名）</p>
+
+					<table class="table table_full" border="1">
+						<tr>
+							<th>名称/代号</th>
+							<th>特点</th>
+							<th>版本覆盖</th>
+						</tr>
+						<tr>
+							<td>Minecraft Server<br>Minecraft官方服务端</td>
+							<td>Mojang的官方服务端，绝对纯净的服务端，无法进行插件或Mod扩展。</td>
+							<td>全版本</td>
+						</tr>
+						<tr>
+							<td>Bukkit/CraftBukkit/Spigot<br>水桶/水桶第二代/水龙头</td>
+							<td>中者是前者的继承，此三项都是标准的插件扩展型纯净服务端，Bukkit系列更经典，Spigot则偏向于优化。仅可安装插件。</td>
+							<td>基本全版本</td>
+						</tr>
+						<tr>
+							<td><span class="bold">PaperSpigot</span>/TacoSpigot<br>纸龙头/卷饼<span class="feet_des">(?)</span>水龙头</td>
+							<td>此两项皆为Spigot水龙头服务端第三方团队针对大型服务器进行的优化版本，旨在打造高性能、兼容性强的服务端。在大型多人游戏中有较好的性能表现。部分Spigot插件可能无法在此服务端正常运行。仅可安装插件。<span class="bold">（PaperSpigot为教学用端）</span></td>
+							<td>1.8+</td>
+						</tr>
+						<tr>
+							<td>MCPC/(K)Cauldron/Sponge<br/>MCPC/坩埚/海绵服务端</td>
+							<td>此三项为标准的混合扩展型Mod服务端，都可以安装Mod或是属于自己服务端的插件。此类服务端适配难度较高，优化问题突出，需要有一定经验后方可上手实操。此外也有诸如版本不全等问题。</td>
+							<td>MCPC/(K)Cauldron 1.7.10以前<br/>Sponge 1.12+</td>
+						</tr>
+						<tr>
+							<td>Forge Minecraft Server<br>Forge官服扩展端</td>
+							<td>并非独立的服务端，而是Mojang官服端安装Forge后的体系。可以安装同版本的Mod进行扩展，仍无法安装插件。</td>
+							<td>视Forge版本而定</td>
+						</tr>
+					</table>
+					
+
+					<p>如果你想开一个Mod服务器，选择以上Sponge（海绵）端、KCauldron（坩埚）端等服务端可以满足你的需求。如果你只是想回归质朴，可以使用官服端。如果你想有一些可玩性，但是又不想整Mod服务器，需要有较好的优化等，Spigot（水龙头）与Bukkit&CraftBukkit（水桶）系列都可以满足你。</p>
+
+					<p>在这里为了统一，我就采用PaperSpigot这一个以水龙头Spigot端为基础的分支服务端作为教学服务端。这个服务端基本覆盖了大部分版本，也自带优化与反作弊。需要注意的是，如果你选择部分Mod端，那么在下面的内容中你可能会发现内容有亿些不一样，所以我 <span class="bold">建议小白先学好纯净的插件服务端的操作，再学习Mod服务端</span>，这将会大大提升你的学习效率。</p>
+
+					<ul>
+						<li><span class="li_pre">教学用端 PaperSpigot</span> <a href="https://papermc.io/legacy" target="blank">https://papermc.io/legacy</a></li>
+						<li><span class="li_pre">标准 Spigot</span> <a href="https://getbukkit.org/download/spigot" target="blank">https://getbukkit.org/download/spigot</a></li>
+						<li><span class="li_pre">标准 CraftBukkit</span> <a href="https://getbukkit.org/download/craftbukkit">https://getbukkit.org/download/craftbukkit</a></li>
+					</ul>
+
+					<p>如上是部分纯净端的下载方式，为了使链接长久能使用，就用了国外的官方地址。在进入到链接页面后，可以发现很多不同版本的服务端，选择自己的游戏版本并点击Download字样的按钮，就会自动开启服务端的下载，等待下载完毕即可。服务端可以自选，这三个都是以官服为蓝本开发的，插件能互相兼容。只是优化之间存在问题，无需多疑。</p>
+
+					<p>多嘴提一句关于下载服务端的问题，由于这些服务端官方源地址大多在国外，所以如果读者下载过程中如果遇到抽风卡速、下载奇慢的问题，可以从国内的大多数论坛上（MCBBS等）获取到这些服务端的国内搬运源。</p>
+
+
+					<div class="sever"></div>
+
+
+					<p>服务端文件并不大，考虑到国外下载较慢的问题，打一把CSGO就能解决完下载问题（30分钟？！）。服务端程序都是一个 <code>.jar</code> 后缀结尾的文件。什么？你看不到后缀？</p>
+
+					<img src="/assets/chapters/images/0001/2.png" width="100%">
+					<center class="img_des">请在计算机资源管理器->文件->界面把你的.jar后缀找回来</center>
+
+					<p>如果你是Windows系统，谨记.jar的应用程序不可以直接打开，运行服务端文件的方法是使用脚本。将你的服务端文件置于一个空文件夹（不在C盘，不要中文名，空的就行，别放桌面了），并在此文件夹下新建一个文本文档（.txt），用自带的记事本向里面写入以下内容：</p>
+
+<pre><code class="batch">@echo off
+title Console
+java -Xms1g -Xmx1g -jar [在这里输入自己的服务端文件名称（不带后缀）].jar
+pause</code></pre>
+				
+					<p>这个脚本中的参数可以根据自己的电脑配置进行修改，如下：</p>
+
+<pre><code class="batch">@echo off
+title [窗口标题]
+java -Xms[服务端程序启动时分配的内存大小] -Xmx[服务端程序最大占用系统内存资源上限] -jar [在这里输入自己的服务端文件名称（不带后缀）].jar
+pause</code></pre>
+					
+					<p>假设我们的服务器设定为启动服务器时占用内存500MB，但运行功率开到最大时，消耗的内存也不能超过1GB（1024MB），可以将Xms与Xmx参数修改为：</p>
+
+<pre><code>-Xms500m -Xmx1g</code></pre>
+
+					<p>将更改的参数加入到源代码中，总的脚本修改后的样子：</p>
+
+<pre><code>@echo off
+title Hello World Server
+java -Xms500m -Xmx1g -jar PaperSpigot_1.16.5_latest.jar
+pause</code></pre>
+					
+					<p>（不建议启动内存占到1/3修改参数后保存。并将后缀名从.txt改成<span class="bold">.bat</span>（无视Windows的提示），然后你就得到了一个命令行文件，Windows默认图标是齿轮与窗口的组合。至此Windows服务端控制台系统就搭建好了，服务器可以通过双击该文件打开命令行的方式启动。</p>
+
+					<div class="sever"></div>
+
+					<p>如果你是Linux系统，那么你有下面几种方法：</p>
+
+					<ul>
+						<li>直接使用java -jar命令启动服务器（同上）</li>
+						<li>使用脚本启动</li>
+					</ul>
+
+					<p>其实上面两种方式只是形式上的不同，Linux毕竟是命令行为主的系统。使用命令行快一些。如果你在未来保证不了自己的脑子能记得住命令，可以使用bash shell命令行文件。在服务端同文件夹下建立Start.sh，并用vim编辑器打开该服务端。输入下面的命令并保存。</p>
+
+<pre><code>#!/bin/bash[
+java -Xms[起始内存] -Xmx[最大内存] -jar [在这里输入自己的服务端文件名称（不带后缀）].jar</code></pre>
+					
+					<p>参数原理和Windows一样，将Xms和Xmx都调成自己计算机匹配的数值即可。记得保存后使用bash Start.sh命令。</p>
+
+					<div class="sever"></div>
+
+<pre><code>System Info: Java 1.8 (Java HotSpot(TM) 64-Bit Server VM 25.211-b12) Host:  Windows 00.00 (amd64)
+Loading libraries, please wait...
+[xx:xx:xx INFO]: You need to agree to the EULA in order to run the server. Go to eula.txt for more info.
+请按任意键继续. . .</code></pre>
+
+					<p>服务器在第一次运行时会出现一个常见的问题，在安装过程中会突然停止，并显示上列信息。</p>
+
+					<p>原因在于Mojang的eula协议，这个协议默认是关闭的，所以Mojang必须让你使用其服务端产品前先同意Eula（不过好像都是盗版诶）</p>
+
+<pre><code>eula=false</code></pre>
+					
+					<p>改为：</p>
+
+<pre><code>eula=true</code></pre>
+					
+					<p>这种问题我们以后还会遇到很多，所以在开始新的服务器之前，要做的还是先把已经改为true的eula.txt建立好，防止它弹出来浪费时间（雾</p>
+
+					<p>重新运行你的服务器，服务器在运行过程中会释放一部分文件。留意控制台的内容，一般在弹出下面这条信息后服务器就进入正常工作状态了：</p>
+
+<pre><code>**略去上列内容
+[10:15:17 INFO]: Preparing spawn area: 100%
+[10:15:17 INFO]: Preparing spawn area: 100%
+[10:15:18 INFO]: Preparing spawn area: 100%
+[10:15:18 INFO]: Preparing spawn area: 100%
+[10:15:18 INFO]: Loaded 441 spawn chunks for world world
+[10:15:18 INFO]: Time elapsed: 10537 ms
+[10:15:18 INFO]: Done (22.524s)! For help, type "help" <-这条内容代表完成加载
+</code></pre>
+					
+					<p>至此，服务器框架搭建完毕。</p>
+
+					<img src="/assets/chapters/images/0001/3.png">
+					<center class="img_des">服务器框架的文件结构</center>
+
+					<p>服务器的原理就是个常开的网络应用程序，如果你想让服务器长期运行，你就要将它长期地挂在电脑上。你也可以租一台服务器（虽然这对要求不是很高的玩家来说确实有点得不偿失），将其挂在服务器上。由于是长期开启，所以你的电脑的硬件和网络资源也相当于被长期占用了一部分，用低端机子开服仍然有待考虑。</p>
+
+					<p>如果你想进入这个服务器，你可以将已经打开的服务器挂在一旁，在游戏内的多人游戏添加服务器，地址栏输入<code>localhost:25565</code>，单击这个服务器进入游戏。这个地址在局域网的各个地方生效。如果你想让外网的玩家游玩到你的服务器，可以参考后期章节部分，我们会讲到如何通过映射内网地址向外网开放你的服务器。</p>
+
+					<p>一些基本操作下一章节将会讲到，如果你没有耐心，切记下面几条：</p>
+
+					<p>如果你要暂停服务器，切记不可单击关闭按钮，在窗口中输入<code>stop</code>即可停止服务器。</p>
+
+					<p>如果你想方便快捷的重启服务器，可以输入<code>reload</code>（如果有提示，请输入<code>reload confirm</code>确认即可）即可。</p>
+
+					<p>如果你想更换世界，请在服务器停止状态下，将world文件夹的内容更换为你的世界的内容，并启动服务器即可。</p>
+
+					<p class="bold">如果你是非正版（盗版）用户，进入服务器会出现无法过验证的问题导致无法进入服务器，你可以打开<code>server.properties</code>中，找到<code>online-mode=true</code>一项，并将其true改为false，非正版玩家就能进入服务器了。</p>
+
+					<div class="sever"></div>
+
+				</div>
+
+				<div id="c_footer">
+					<p id="cf_description">本书可以理解成付费可试看，至于试看多久由你们定（doge，如果对哪位大佬有帮助，不妨捐助一下，好后日高产，谢谢支持！！！！</p>
+					<div id="cf_selections">
+						<div class="boxes"><a class="cf_nosource">上一章</a></div>
+						<div class="boxes"><a href="/">目录</a></div>
+						<div class="boxes"><a href="/chapters/0002" id="next">下一章</a></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Patterns - 00x02 Simple Operations 简单操作 | Minecraft Server Help</title>
+		<meta charset="utf-8">
+
+		<link rel="shortcut icon" href="/assets/common/images/patterns.ico">
+
+		<link rel="stylesheet" type="text/css" href="/assets/common/elements/main_text.css">
+		<link rel="stylesheet" type="text/css" href="/assets/common/elements/nav.css">
+		<link rel="stylesheet" type="text/css" href="/assets/common/elements/global.css">
+
+		<script type="text/javascript" src="/assets/outsides/highlights/highlight.pack.js"></script>
+		<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
+		<link rel="stylesheet" type="text/css" href="/assets/outsides/highlights/styles/androidstudio.css">
+	</head>
+	<body>
+		<div id="navigator">
+			<div id="nav_contents">
+				<div id="nav_logo">
+					<a href="/"><span><</span> PATTERNS /<span>></span></a>
+				</div>
+
+				<ul id="nav_item">
+					<li class="nav_items"><a href="/">目录</a></li>
+					<li class="nav_items"><a href="/donate">捐赠</a></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<div id="main">
+			<div id="main_content">
+				<div id="c_header">
+
+					<h1>3 Plugins&Configurations&Using | 插件的安装、配置以及使用</h1>
+
+					<p id="ch_description">#Chapter 00x03  Time: 2021/06/29  黑夜是戴了面纱的新娘静静等待着那流浪的光回到她的怀抱 —— 泰戈尔</p>
+
+					<div class="sever"></div>
+				</div>
+
+
+
+
+
+
+
+				<div id="c_texts">
+
+
+					<h3>1.1 认识插件</h3>
+
+					<p>前面两章中，我们已经对PaperSpigot服务端的运作与使用有了一定认知。然而，我们还有最核心的内容未涉及，Spigot（Bukkit）最主要的功能在于其拥有着庞大的插件生态，一个服务端内可以同时高效运行数十个插件。这些插件丰富着游戏玩法，让服务器更加多彩。因此，认识、熟练运用插件，进行组合，是最重要的基础知识。</p>
+
+					<p>插件又称服务端插件（Plugins），是运行在服务端程序中的一种附加程序，通过调用服务器资源、更改服务器与玩家数据、监控服务器并输出输入信息以达到某种或多种功能。插件文件具有较为明显的特征，多为.jar的后缀的文件。插件文件需要放在服务端程序的plugins文件夹下方才生效。</p>
+
+					<p>需要注意的是，插件虽然能更改服务器数据并实现功能，但和更改游戏端数据的MOD（模组）程序是不同的。究其原因，是它们两个的功能实现方式的不同。Mod程序通过附加在玩家游戏端内，通过更改玩家服务端的底层数据实现功能，由于供其运行的ForgeAPI深入游戏底层，因而Mod程序可以在游戏底层内通过增删游戏内容的方法来实现特色玩法，如创造新物品和生物，建立新设定等，总而言之，Mod可以创造游戏本身自带内容外的内容。</p>
+
+					<p>然而插件并没有能力深入到玩家游戏底层进行更改（Mod服务器不算，因为Mod服务器安装有Forge），服务端和玩家使用的游戏端沟通是单一的网络连接，而不是建立在相互包括的基础之上。服务器只能对玩家端发送的数据进行处理并返回信息，所以安装在服务端的插件不能更改玩家游戏底层内容，它只能将原版游戏中的内容组合、拼接，通过显示信息的方式传递给玩家。所以，插件只能将现有的游戏内容组合成玩法，不能带来游戏自带内容以外的内容（新物品、新生物）</p>
+
+					<div class="sever"></div>
+				</div>
+
+
+
+				<div id="c_footer">
+					<p id="cf_description">本书可以理解成付费可试看，至于试看多久由你们定（doge，如果对哪位大佬有帮助，不妨捐助一下，好后日高产，谢谢支持！！！！</p>
+					<div id="cf_selections">
+						<div class="boxes"><a href="/chapters/0002">上一章</a></div>
+						<div class="boxes"><a href="/">目录</a></div>
+						<div class="boxes"><a href="/chapters/0004" id="next">下一章</a></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

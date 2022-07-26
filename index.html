@@ -1,15 +1,69 @@
----
-layout: default
-description: Zhuang Ma's Blog
-keywords: Zhuang Ma, 马壮, mzlogin, mazhuang
----
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Patterns - Getting started | Minecraft Server Help</title>
+		<meta charset="utf-8">
 
-<div class="postlist">
-    {% for post in paginator.posts %}
-    <div class="overview">
-        <div class="date">{{ post.date | date: "%b %d, %Y" }}</div>
-        <div class="detail"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></div>
-    </div>
-    {% endfor %}
-</div>
-{% include pagination.html %}
+		<link rel="shortcut icon" href="/assets/common/images/patterns.ico">
+
+		<link rel="stylesheet" type="text/css" href="/assets/common/elements/main_text.css">
+		<link rel="stylesheet" type="text/css" href="/assets/common/elements/nav.css">
+		<link rel="stylesheet" type="text/css" href="/assets/common/elements/global.css">
+	</head>
+	<body>
+		<div id="navigator">
+			<div id="nav_contents">
+				<div id="nav_logo">
+					<a href="/"><span><</span> PATTERNS /<span>></span></a>
+				</div>
+
+				<ul id="nav_item">
+					<li class="nav_items actived"><a href="/">目录</a></li>
+					<li class="nav_items"><a href="/donate">捐赠</a></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<div id="main">
+			<div id="main_content">
+				<div id="c_header">
+
+					<h1>Pre-Intro | 写在前面</h1>
+
+					<p id="ch_description">#Chapter 00x00  Time: 1970/01/01 00:00:01  All's beginning</p>
+
+					<div class="sever"></div>
+
+				</div>
+
+
+
+				<div id="c_texts">
+					<p>
+						鉴于国内服务器市场火爆，特此操笔执稿，作此篇。忌长篇大论和枯涩之词，取通俗易懂之意。PATTERNS项目就此展开。此项目旨在构建一个从零开始教学的服务器开发基础知识库，当该项目公开于世时，想必第一步已经迈出去了。作为一个开放全面的知识库，后期可能会加入类似WIKI自由编辑的系统，以及类似W3SCHOOL之类有学而实践的系统。然经费精力有限<span class="feet_des">(疯狂暗示)</span>，暂将此项目托管至Github Pages上，且不添加太多动态内容。
+					</p>
+
+					<p>以下为本项目的索引（目录）部分。此部分为第一部的索引。</p>
+
+					<div class="sever"></div>
+
+					<h1>Summary | 目录</h1>
+
+					<div class="sever"></div>
+
+					<ul>
+						<li><span class="li_pre">#Chapter 00x01</span> <a href="chapters/0001
+							"> Getting Started 从零开始</a></li>
+
+						<li><span class="li_pre">#Chapter 00x02 </span><a href="chapters/0002">Simple Operations 基础操作</a></li>
+
+						<li><span class="li_pre">#Chapter 00x03 </span><a href="chapters/0003">Plugins&Configurations&Using | 插件的安装、配置以及使用</a></li>
+
+						<li><span class="li_pre">#Chapter 00x04 </span><a class="no_pre">...</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

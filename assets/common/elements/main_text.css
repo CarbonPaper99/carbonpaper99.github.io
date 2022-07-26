@@ -1,0 +1,122 @@
+#main {
+	margin-top: 90px!important;
+	margin-bottom: 90px !important;
+	padding: 50px 0px 50px 0px;
+	width: 65%;
+	margin: 0 auto;
+	background: rgba(20,25,20);
+}
+
+
+
+
+
+
+
+#main h1,h2,h3,h4,h5,span {
+	color: #fff;
+	font-weight: 200;
+	margin: 0;
+}
+#main a {
+	text-decoration: none;
+	color: rgba(255,255,255);
+}
+#main a:hover {
+	text-decoration: underline;
+}
+#main ul {margin: 0px 0px 20px 0px;}
+#main li {color: #fff; font-size: 18px; line-height: 30px;}
+#main h1 {font-size: 38px;}
+#main_content {
+	margin: 0px 50px 0px 50px;
+}
+#c_header {
+	width: 100%;
+}
+#c_footer {
+	width: 100%;
+}
+#ch_description {
+	margin: 10px 0px 8px 0px;
+	font-size: 14px;
+	color: rgba(255,255,255,0.8);
+}
+
+#cf_description {
+	color: rgba(255,255,255,0.3);
+}
+#cf_selections {
+	width: 100%;
+}
+.boxes {float: left;width: 33.3%;text-align: center;}
+.cf_nosource {color: rgba(255,255,255,0.4) !important;}
+.cf_nosource:hover {text-decoration: none !important;}
+/*
+Text Format/Styles 文本样式/格式
+
+*/
+
+
+#c_texts p {
+	margin: 0px 0px 20px 0px !important;
+	font-size: 18px;
+	font-family: Helvetica;
+	font-weight: 100;
+	line-height: 35px;
+	color: rgba(255,255,255,0.9);
+} /*标准文本*/
+
+#c_texts h3 {
+	margin-bottom: 20px;
+	font-weight: 900;
+	font-size: 25px;
+}
+#c_texts h4 {
+	margin-bottom: 20px;
+	font-weight: 900;
+	font-size: 20px;
+}
+
+.bold {font-weight: bold!important;} /*加粗文本段*/
+.cross {text-decoration: line-through;}
+.feet_des {font-size: 8px;color: #ddd;} /*脚注*/
+.underline {text-decoration: underline;}
+
+.sever {
+	width: 100%;
+	height: 1px;
+	background: rgba(255,255,255,0.2);
+	margin: 25px 0px 25px 0px;
+}/*分割线*/
+
+.quotes {
+	margin: 0;
+	padding: 12px 0px 12px 12px;
+	border-left: 3px solid rgba(255,255,255,0.2);
+	color: rgba(255,255,255,0.4)!important;
+} /*引用*/
+
+.li_pre {font-weight: 900;color: rgba(255,255,255,0.8);}
+
+.table {
+	border-color: 1px;
+	border-style: solid;
+	color: #fff;
+	margin: 0px 0px 20px 0px;
+	border-collapse: collapse;
+}
+.table th,td {padding: 10px 5px 10px 5px;}
+.table th {font-size: 16px;}
+.table td {color: rgba(255,255,255,0.8); font-family: consolas;}
+.table_full {width: 100%;}
+/*都是表格*/
+
+.img_des {
+	font-weight: 100;
+	font-size: 0.9em;
+	color: rgba(255,255,255,0.5);
+	margin: 0px 0px 20px 0px;
+}
+
+pre {margin-bottom: 20px!important;}

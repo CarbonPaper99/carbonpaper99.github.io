@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Patterns - 00x02 Simple Operations 简单操作 | Minecraft Server Help</title>
+		<meta charset="utf-8">
+
+		<link rel="shortcut icon" href="/assets/common/images/patterns.ico">
+
+		<link rel="stylesheet" type="text/css" href="/assets/common/elements/main_text.css">
+		<link rel="stylesheet" type="text/css" href="/assets/common/elements/nav.css">
+		<link rel="stylesheet" type="text/css" href="/assets/common/elements/global.css">
+
+		<script type="text/javascript" src="/assets/outsides/highlights/highlight.pack.js"></script>
+		<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
+		<link rel="stylesheet" type="text/css" href="/assets/outsides/highlights/styles/androidstudio.css">
+	</head>
+	<body>
+		<div id="navigator">
+			<div id="nav_contents">
+				<div id="nav_logo">
+					<a href="/"><span><</span> PATTERNS /<span>></span></a>
+				</div>
+
+				<ul id="nav_item">
+					<li class="nav_items"><a href="/">目录</a></li>
+					<li class="nav_items"><a href="/donate">捐赠</a></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<div id="main">
+			<div id="main_content">
+				<div id="c_header">
+
+					<h1>2 Simple Operations | 简单操作</h1>
+
+					<p id="ch_description">#Chapter 00x02  Time: 2021/01/23 00:00:01  黑夜是戴了面纱的新娘静静等待着那流浪的光回到她的怀抱 —— 泰戈尔</p>
+
+					<div class="sever"></div>
+				</div>
+
+
+
+
+
+
+
+				<div id="c_texts">
+
+					<p class="quotes">比起那些手把手教学的章节，本章更像是理论基础教科书般的教学，你需要理解的东西不算太多，但比较重要。<br>为了方便跟进，读者需要下载诸如Notepad++这样的文本编辑软件，可以到百度搜索Notepad++找到官网，下载最新版即可。</p>
+
+					<p></p>
+
+					<div class="sever"></div>
+
+					<h3>1.1 控制台、日志和输出输入</h3>
+
+					<h4>O1 控制台与信息输出</h4>
+
+					<p>在开始本章节前，我们先只认识一个简单的概念：<span class="bold">控制台（Console）</span></p>
+
+					<p>控制台是指服务器后台运行时管理程序输出输入的系统，表现出来给管理员看到的就是开启服务器后出现的大黑框命令行。服务器的信息集中到这里。控制台可以执行除了玩家命令以外的任何一种命令，也可以观察到服务器内的信息流出入。对服务器的开发、管理和排错（Debug）有很重要的意义。</p>
+
+					<p>服务器和控制台是绑定在一起的，只有服务器常开，控制台才有效。同样，控制台也可以作为服务器的最高Executor（执行者）。这里体现了控制台有两种信息管理形式，分别是输出（Output）和输入（Input）。</p>
+
+					<p>好，控制台的概念我们基本了解完了。在知道了控制台的输出输入双面性。为了理解这个输入和输出的概念，我们举几个例子来讲，增进读者的理解。</p>
+
+					<p>先讲输出吧，输出是最简单的。在服务器开启的过程中，控制台时常会弹出一些信息到控制台窗口上，这些信息来自于服务器内部，有两种最普通表现形式。第一种是服务器正常运行的信息流，第二种是报错的信息流。</p>
+
+					<p>报错信息流一般体现为以警告色标注（红色、黄色），信息内含有ERROR或Fail等字样且具有非常规的字符弹出的信息流，下面是个例子：</p>
+
+
+<pre><code>[10:55:31] [Server thread/ERROR]: Could not load 'plugins\welcome_title.jar' in folder 'plugins'
+org.bukkit.plugin.InvalidPluginException: java.lang.UnsupportedClassVersionError: my/welcome/Main has been compiled by a morerecent version of the Java Runtime (class file version 57.0), this version of the Java Runtime only recognizes class file versions up to 52.0
+	at org.bukkit.plugin.java.JavaPluginLoader.loadPlugin(JavaPluginLoader.java:138) ~[PaperSpigot.jar:git-Paper-66]
+	at org.bukkit.plugin.SimplePluginManager.loadPlugin(SimplePluginManager.java:337) ~[PaperSpigot.jar:git-Paper-66]
+	at org.bukkit.plugin.SimplePluginManager.loadPlugins(SimplePluginManager.java:257) ~[PaperSpigot.jar:git-Paper-66]
+	at org.bukkit.craftbukkit.v1_15_R1.CraftServer.loadPlugins(CraftServer.java:356) ~[PaperSpigot.jar:git-Paper-66]
+	at net.minecraft.server.v1_15_R1.DedicatedServer.init(DedicatedServer.java:227) ~[PaperSpigot.jar:git-Paper-66]
+	at net.minecraft.server.v1_15_R1.MinecraftServer.run(MinecraftServer.java:885) ~[PaperSpigot.jar:git-Paper-66]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_211]
+Caused by: java.lang.UnsupportedClassVersionError: my/welcome/Main has been compiled by a more recent version of the Java Runtime(class file version 57.0), this version of the Java Runtime only recognizes class file versions up to 52.0
+	at java.lang.ClassLoader.defineClass1(Native Method) ~[?:1.8.0_211]
+	at java.lang.ClassLoader.defineClass(Unknown Source) ~[?:1.8.0_211]
+	at java.security.SecureClassLoader.defineClass(Unknown Source) ~[?:1.8.0_211]
+	at org.bukkit.plugin.java.PluginClassLoader.findClass(PluginClassLoader.java:146) ~[PaperSpigot.jar:git-Paper-66]
+	at org.bukkit.plugin.java.PluginClassLoader.findClass(PluginClassLoader.java:96) ~[PaperSpigot.jar:git-Paper-66]
+	at java.lang.ClassLoader.loadClass(Unknown Source) ~[?:1.8.0_211]
+	at java.lang.ClassLoader.loadClass(Unknown Source) ~[?:1.8.0_211]
+	at java.lang.Class.forName0(Native Method) ~[?:1.8.0_211]
+	at java.lang.Class.forName(Unknown Source) ~[?:1.8.0_211]
+	at org.bukkit.plugin.java.PluginClassLoader.<init>(PluginClassLoader.java:64) ~[PaperSpigot.jar:git-Paper-66]
+	at org.bukkit.plugin.java.JavaPluginLoader.loadPlugin(JavaPluginLoader.java:134) ~[PaperSpigot.jar:git-Paper-66]
+	... 6 more
+[10:55:31] [Server thread/WARN]: Legacy plugin CleanMotD v0.2.5 does not specify an api-version.
+
+#标准的插件加载报错信息流</code></pre>
+
+				
+					<p>报错有时候会很严重，有时候也只是弹一条信息，报错信息可能出现在加载、关闭服务器的时候，也可能玩家进入或进行操作的时候报错。报错的解决方案是个十分玄学的问题，这还得到我们后期共同进行探讨。</p>
+
+					<p>常规的信息流中包括事件信息流，可以看到玩家登陆、登出，玩家发出信息、使用指令、达成成就等事件的情况。举例，这是我的生存服务器内一段时间内的控制台日志：</p>
+
+<pre><code>
+[11:02:28] [Server thread/INFO]: CarbonPaper99 issued server command: /time set day
+[11:02:28] [Server thread/INFO]: [CarbonPaper99: Set the time to 1000]
+# 玩家使用指令事件
+
+[11:02:38] [Server thread/INFO]: CarbonPaper99 has made the advancement [Ice Bucket Challenge]
+[11:03:21] [Server thread/INFO]: CarbonPaper99 has made the advancement [We Need to Go Deeper]
+# 玩家成就达成事件
+</code></pre>
+					
+					<p>可以看出，玩家CarbonPaper99在11:02-11:03曾使用了/time set day命令，并且连续达成了两个成就，一个冰桶挑战（拿出黑曜石），一个更深入些（进入下界）。</p>
+
+					<p>以上两个例子都可以看出服务器的输出性。除此之外，以每一次关闭服务器为一个周期，这个时间段服务器控制台弹出的所有信息都会被记录在服务端文件夹下的logs文件夹的文档中。这些文档记录着服务器的所有信息流，这种文本文档被称为<span class="bold">日志（logs）</span>，日志每次都会被归档到logs文件夹中，这些留下来的文本文档每次开完服务器我们都可以去查看，对排错和查询有意想不到的帮助。</p>
+
+					<h4>O2 控制台与输入</h4>
+
+					<p>控制台除了输出，也可以输入。不过控制台的输入端口以指令为基础，操作都由输入的指令完成。这里的指令同游戏内玩家使用的斜杠命令行<code>/help or /gamemode</code>的命令相同，只不过输入这些命令时你可以省略斜杠，你可以直接输入指令的内容和参数执行指令，下面是个例子：</p>
+
+<pre><code>> gamemode Joxes survival
+... > 已设置玩家Joxes的游戏模式为 survival
+</code></pre>
+					
+					<p>这一例里，服务器控制台向服务器输入了一条指令，指令主干为gamemode，参数为Joxes和survival。既然都知道/gamemode使用下有多种参数可以选择，具体参照的是：<code>/gamemode <玩家名字> <游戏模式></code>，这条指令在控制台输入时也获得了同样的效果，故可得知：</p>
+
+					<p><span class="bold underline">控制台在执行指令时，具有最高权限。</span></p>
+
+					<p>但是我们可不可以认为控制台拥有和玩家等效的权限模式呢？不可以这样说。以下是一个例子：</p>
+
+<pre><code>> give minecraft:diamond 1
+... > 正确用法：/give <玩家> <物品> <数量>
+
+#或
+
+>> kill
+... > 正确用法：/kill <玩家>
+
+# 或
+
+>> tp 0 0 0
+... > 正确用法：/tp <玩家> X Y Z
+</code></pre>
+
+					<p>我们发现，如果在控制台直接只输入give指令并加上钻石的参数，是无法执行的。但在游戏中，倘若你要给自己一个钻石，使用这个指令可以完美运行。要理解这个就先理解这些命令的含义，我们知道这些命令既然作用于玩家上，那对玩家肯定有影响。现在控制台输入和玩家一样的命令，按道理控制台也应该受到相同的作用的，</p>
+
+					<p>可是，控制台属于玩家吗？</p>
+
+					<p>理解到这一步就够了：控制台并不是玩家，所以和玩家使用命令有小小的不一样，概括起来就是：</p>
+
+					<p><span class="bold underline">控制台使用有实体效应的指令时，必须指定对象。</span></p>
+
+					<p>综上，控制台的基础概念讲完。</p>
+
+					<div class="sever"></div>
+
+					<h3>2.1 服务端文件的修改，参数的配置等技巧</h3>
+
+					<p>上面关于日志信息的辨识和读取技巧提到了logs文件夹，logs文件夹只是服务端程序文件中的单个文件夹。服务端完整程序含有21文件，完整的结构如下面：</p>
+
+<pre class="yaml"><code>- /logs #日志
+- /plugins #插件 (!)
+- /world #主世界的数据 (!)
+- /world_nether #下界世界的数据
+- /world_the_end #末地世界的数据
+- eula.txt #EULA协议书
+- paper.yml # paperspigot的配置文件 (!)
+- spigot.yml # spigot的原生配置文件
+- bukkit.yml # bukkit的原生配置文件 (!)
+- ops.json # 最高级管理员名单
+- usercache.json # 用户的杂项数据
+- server.properties # 服务器基础项参数配置文件 (!)
+- help.yml # 帮助文档
+- commands.yml # 自定义指令配置文件
+- banned_players.json # 被封禁的玩家名单
+- banned_ips.json # 被封禁的IP地址名单
+- version_history.json # 历史版本
+- PaperSpigot.jar # 服务端核心文件  (!)
+- xxx.bat # 服务端启动脚本 (!)
+</code></pre>
+					
+					<p>在开始服务器配置之前，我们先明白一个规则：<span class="bold">不懂的文件先保持原样，切记不要删除或随意修改</span>，这是一个服务器维护时的准则。</p>
+
+					<h4>O1 Properties 文件</h4>
+
+					<p>我们以server.properties为例，server.properties是服务端文件最基本的配置文件，这个配置文件包含着基本的游戏规则、世界设定、难度设定等参数供调节。这个文件是个.properties文件，该文件可以用先前讲过的Sublime text或Notepad++等文本编辑软件打开。</p>
+
+<pre><code># server.properties 实例文件
+# Minecraft server properties
+# Sat Jan 23 10:57:12 CST 2021
+spawn-protection=16
+# 1) 出生点保护半径，以玩家所在世界的出生点为圆心创造一个圆形保护区，玩家在这个保护区内不能破坏方块 [数字=<29999984]
+max-tick-time=60000
+# 2) 延迟播报规则 [数值] （tick是服务端用于计算延迟的数值，如果延迟超过设定的tick数值，将会在控制台广播）
+query.port=25565
+# 3 依赖于第10项是否为true) 监听端口，不同于服务器对外开放的端口 [100=<数值=<65535] 注意所在端口不要被其他程序占用
+generator-settings=
+# 4) 世界生成器设定 [?]
+force-gamemode=false
+# 5) 强制性游戏模式 [false/true]
+allow-nether=true
+# 6) 是否允许下界世界生成 [false/true]
+enforce-whitelist=false
+# 7) 强制性白名单的使用 [false/true] （白名单是一种机制，开启将过滤掉除白名单玩家外的全部玩家）
+gamemode=survival
+# 8) 游戏模式 [survival（生存）/creative（创造）/advanture（极限）]
+broadcast-console-to-ops=true 
+# 9) 当玩家被设置为超级管理员时，是否向全服务器广播该消息 [false/true]
+enable-query=false
+# 10) 是否开启监听
+player-idle-timeout=0
+# 11) 玩家挂机最长的时间（超过该时间玩家踢出服务器，单位秒） [0（关闭）/数值]
+difficulty=hard
+# 12) 游戏难度 [hard/easy/peaceful/normal]
+spawn-monsters=true
+# 13) 是否生成怪物 [false/true]
+broadcast-rcon-to-ops=true
+# 14) 是否公告rcon对超级管理员的监听 [?false/true]
+op-permission-level=4
+# 15) 超级管理员权限等级 [1/2/3/4]
+# 补充： 1-超级管理员可以绕过重生点保护
+#       2-超级管理员可以使用单人游戏作弊命令
+#       3-超级管理员可以使用大多数多人游戏命令
+#       4-超级管理员拥有和控制台等效的权限
+#       ps：超级管理员是一种玩家等级，在游戏中拥有较高权限，允许作弊，可以通过/op <玩家>实现。
+pvp=false
+# 16) 是否开启pvp [1/2/3/4]
+snooper-enabled=true
+# 17) 是否允许服务端发送数据到snooper平台上（snooper平台是minecraft的官有平台，用于汇总服务器信息） [false/true]
+level-type=default
+# 18) 确定自动生成的地形 [default/flat/largebloimes/amplified/buffet]
+hardcore=false
+# 19) 硬核模式，模式为困难，玩家死亡后切至旁观者 [false/true]
+enable-command-block=true
+# 20) 是否允许命令方块使用 [false/true]
+max-players=10
+# 21) 服务器人数上限 [数值]
+network-compression-threshold=256
+# 22) 压缩数据包限度调节 [数值]
+resource-pack-sha1=
+# 23) 游戏内置资源包的SHA数值 [十六进制数值]
+max-world-size=29999984
+# 24) 世界边界的半径大小 [数值=<29999984]
+function-permission-level=2
+# 25) 函数默认权限等级 [1/2/3/4，等同于超级管理员权限等级规范]
+rcon.port=25575
+# 26) rcon远程监听端口 [100=<数值=<65535] 注意所在端口不要被占用
+server-port=20000
+# 27) 服务器所在的网络端口，玩家通过该端口进入服务器 [100=<数值=<65535]
+debug=false
+# 28) 纠错模式 [false/true]
+server-ip=
+# 29) 服务器所在的网络IP地址（内网），玩家通过填写该地址加上端口进入服务器 [地址（例子是127.0.0.1）/localhost（即通用内网）]
+spawn-npcs=true
+# 30) 是否生成NPC [false/true]
+allow-flight=false
+# 31) 是否允许飞行 [false/true]
+level-name=world
+# 32) 默认的主世界名称，将在服务端文件夹下搜索到对应的文件夹名称作为主世界的数据 [字符串]
+view-distance=10
+# 33) 玩家默认可视距离 [数值]
+resource-pack=
+# 34) 玩家登入服务器内的资源包，将从填写的网址内直接加载。 [直接可以使用并进行下载的资源包链接]
+spawn-animals=true
+# 35) 是否生成动物 [false/true]
+white-list=false
+# 36) 是否使用白名单 [false/true]
+rcon.password=
+# 37) 远程监听管理的密码 [字符串]
+generate-structures=true
+# 38) 是否生成建筑结构 [false/true]
+max-build-height=256
+# 39) 玩家能建筑的上限 [数值=<255]
+online-mode=false
+# 40) 是否开启正版验证 [false/true]
+level-seed=
+# 41) 主世界种子 [种子]
+use-native-transport=true
+# 42) ？
+prevent-proxy-connections=false
+# 43) 是否允许玩家使用代理服务器（VPN）进入游戏 [false/true]
+enable-rcon=false
+# 44) 是否开启rcon远程监听管理 [false/true]
+motd=Minecraft Server
+# 45) 服务器的标语 [字符串（中文需要转码）]
+</code></pre>
+
+					<p>以上是我的server.properties个例，版本为1.15.2</p>
+
+					<p>不难从网页标示出来的高亮文字看出，整个配置文件分成两部分，一是正常的<code>xx = xxxx</code>的格式，另一种是以<code>#</code>这种井号标成灰色的文字。我们通常称这种灰色的文字为<span class="bold">注释（description）</span>，注释是对文档的补充说明，方便开发者进行开发的一种规范。</p>
+					
+					<p class="quotes">我们想象用裱花袋在糕点上裱上字体，既能吃也能看</p>
+
+					<p>这样理解下来，就可以明白出：这种文本不会影响程序运作，相当于说明书。在properties文件中，注释的开头必须加井号，在Notepad++中，加了井号的注释也会被标明。</p>
+
+					<p>理解了注释后，我们可以开始编辑这份文件了，你可以根据上面的注释来依次修改你服务端当中文件的对应参数（方括号内是可以填入的所有值）。例如<code>server-ip=</code>我们可以改成<code>server-ip=127.0.0.1</code>，当然也可以修改成<code>server-ip=0.0.0.0</code>这样的地址。等号后面是参数的值，等号前面是参数键（即key）。配置当中也时常会出现是否值，true即为是，false即为否，这种数值称作布尔值，这是一种比较常见的</p>
+
+					<p>以上是properties语言的配置规范，它是我们服务端配置规则中的一角。</p>
+
+					<h4>O2 YAML 配置语言</h4>
+
+					<p>除了properties文件格式，我们还将在服务器中认识到一种最常规的配置文件语言：YAML</p>
+
+					<p>YAML的文件以.yml结尾，这种文件在服务端中有很多，例如spigot.yml和bukkit.yml，YAML有个特点就是简洁和适应性强，所以在进行配置的时候，YAML总是最优选。</p>
+
+					<p>举个例子，下面是一段YAML语言配置文件的规范：</p>
+
+<pre><code>name: "CarbonPaper99"
+sex: "male"
+age: 0
+isStudent: true
+lore:
+- "the first line"
+- "the second line"
+
+#我是YAML的注释
+#YAML语言同properties一样以井号开头进行注释。 
+</code></pre>
+					
+					<p>在YAML文件中，<span class="bold">冒号前面的内容称作参数键（key），冒号后面的内容称作参数值（value）</span>。由此不难看出YAML依然是和Properties相近的标记语言，都是以“键:值”为基础进行标记的语法。这种语法中，数值有四种基本类型：</p>
+
+					<ul>
+						<li>以整数或小数组成的数字值（例如1、4、1.5、3.1415926等值）</li>
+						<li>以true/false标记出“是/否”的布尔值（boolean）（true代表是，false代表否）</li>
+						<li>以双引号包围的字符串（例如"OK","CarbonPaper"）</li>
+						<li>以横杠开头，换行代表下一行，可以多行叠加的字符串组或者是数组（数组参数键: - "数组的第一行"\换行 - "数组的第二行"）</li>
+					</ul>
+
+					<p>由于YAML依然以英文为基础，所以所有关于语法有关的字符标点都应当由英文字符代替，不可使用中文的全半角字符。</p>
+
+<pre><code>YAML的参数键:YAML的参数值</code></pre>
+
+					<p>编辑完毕后，通常要检查文件的编码（Encode）是否吻合。你也可能问编码是啥啊——够了，如果编码出现问题，配置文件会出现中文变成乱码而导致前功尽弃。我们在选择编码时可以对照下表进行选择。（更改文件编码可以在Notepad++中点击编码，再点击转向UTF-8或ANSI）</p>
+
+					<table class="table table_full" border="1">
+						<tr>
+							<th>游戏版本/操作系统</th>
+							<th>Windows</th>
+							<th>Linux系(MacOS)</th>
+						</tr>
+						<tr>
+							<td>1.9以前</td>
+							<td>ANSI</td>
+							<td>UTF-8</td>
+						</tr>
+						<tr>
+							<td>1.9至如今</td>
+							<td>UTF-8</td>
+							<td>UTF-8</td>
+						</tr>
+					</table>
+
+					<p>对照并更改自己文件的编码，随后重启服务器即可生效。（调试配置文件后重启服务器需要养成备份习惯）</p>
+
+					<div class="sever"></div>
+
+					<h3>2.3 超级管理员和服务器玩家操作</h3>
+
+					<h4>O1 超级管理员</h4>
+
+					<p>即OP（亦称为Operators，操作员），是一种高于普通玩家的权限等级，OP玩家可以使用大量非常规指令，如服务器排错、作弊、修改等类型指令。OP玩家所能获取到的最大权限限度可以在server_properties.json中进行设定。将一名玩家设定为OP玩家，输入：</p>
+
+					<pre><code>/op <玩家></code></pre>
+
+					<p>同样，撤销一名玩家的OP权限可以：</p>
+
+					<pre><code>/deop <玩家></code></pre>
+
+					<h4>O2 玩家操作、黑名单</h4>
+
+					<p>在管理玩家时，如果你想踢出某个玩家，你可以使用<code>/kick <玩家> [理由]</code>命令使玩家退出本局游戏，但玩家还可以继续进入游戏。</p>
+
+					<p>如果你想将某个玩家拉入黑名单（即ban某个玩家），可以使用<code>/ban <玩家> [理由]</code>这个指令，玩家和他的UUID将会被记录到banned_players.json中。玩家将永远不可加入这个服务器。</p>
+
+					<p>如果你想沙仁猪心，可以直接将某个IP地址拉入黑名单（不建议这样做，因为如果使用外网映射，玩家将统一从127.0.0.1端口进入，这将会封杀所有玩家），这个IP地址下的所有设备无法进入服务器，具体可使用<code>/ban-ip <地址> [理由]</code>封杀，IP地址会记入到banned_ips.json中</p>
+
+					<p>解封一个IP地址使用<code>/pardon <地址/玩家></code></p>
+
+					<div class="sever"></div>
+
+					<h3>2.4 本章 FAQ</h3>
+
+					<h4>Q1 如何关闭服务器？</h4>
+					<p><span class="bold">A1</span> 控制台输入stop即可完成</p>
+
+					<h4>Q2 如何重启服务器？</h4>
+					<p><span class="bold">A2</span> 重启服务器有两种方法，第一种是使用stop后再重新启动服务器，这种情况最保险。第二种是使用reload命令，这个命令可能在一些情况下会导致服务器崩溃。</p>
+
+					<h4>Q3 关于服务端的其他配置文件的配置技巧，为什么没有提到？</h4>
+					<p><span class="bold">A3</span> 因为这些服务端文件都大同小异，所有服务端文件的更改方法和完整注释都可以在Minecraft-WIKI找到，本站只是举例修改。你也可以在本站找到所有服务端注释过的文件，你可以根据这些注释修改文件。</p>
+
+					<h4>Q4 如何升级服务器？</h4>
+					<p><span class="bold">A4</span> 在官网下载最新的镜像替换即可，这种替换一般可以向上（1.15替换为1.16），但不可以向下（1.16替换为1.15）</p>
+
+					<div class="sever"></div>
+				</div>
+
+
+
+				<div id="c_footer">
+					<p id="cf_description">本书可以理解成付费可试看，至于试看多久由你们定（doge，如果对哪位大佬有帮助，不妨捐助一下，好后日高产，谢谢支持！！！！</p>
+					<div id="cf_selections">
+						<div class="boxes"><a href="/chapters/0001">上一章</a></div>
+						<div class="boxes"><a href="/">目录</a></div>
+						<div class="boxes"><a href="/chapters/0003" id="next">下一章</a></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
