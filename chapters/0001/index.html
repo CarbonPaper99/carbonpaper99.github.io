@@ -140,7 +140,7 @@
 					<img src="/assets/chapters/images/0001/2.png" width="100%">
 					<center class="img_des">请在计算机资源管理器->文件->界面把你的.jar后缀找回来</center>
 
-					<p>如果你是Windows系统，谨记.jar的应用程序不可以直接打开，运行服务端文件的方法是使用脚本。将你的服务端文件置于一个空文件夹（不在C盘，不要中文名，空的就行，别放桌面了），并在此文件夹下新建一个文本文档（.txt），用自带的记事本向里面写入以下内容：</p>
+					<p>如果你是Windows系统，谨记.jar的应用程序不可以直接打开，运行服务端文件的方法是使用脚本。将你的服务端文件置于一个空文件夹（置于非系统盘下，名称非中文），并在此文件夹下新建一个文本文档（.txt），用自带的记事本向里面写入以下内容：</p>
 
 <pre><code class="batch">@echo off
 title Console
@@ -154,7 +154,7 @@ title [窗口标题]
 java -Xms[服务端程序启动时分配的内存大小] -Xmx[服务端程序最大占用系统内存资源上限] -jar [在这里输入自己的服务端文件名称（不带后缀）].jar
 pause</code></pre>
 					
-					<p>假设我们的服务器设定为启动服务器时占用内存500MB，但运行功率开到最大时，消耗的内存也不能超过1GB（1024MB），可以将Xms与Xmx参数修改为：</p>
+					<p>假设我们的服务器设定为启动服务器时占用内存500MB，但在满载运行时，消耗的内存也不能超过1GB（1024MB），可以将Xms与Xmx参数修改为：</p>
 
 <pre><code>-Xms500m -Xmx1g</code></pre>
 
@@ -165,7 +165,7 @@ title Hello World Server
 java -Xms500m -Xmx1g -jar PaperSpigot_1.16.5_latest.jar
 pause</code></pre>
 					
-					<p>（不建议将启动内存设置到你设备总内存的1/3以上，修改参数后保存。并将后缀名从.txt改成<span class="bold">.bat</span>（无视Windows的提示），然后你就得到了一个命令行文件，Windows默认图标是齿轮与窗口的组合。至此Windows服务端控制台系统就搭建好了，服务器可以通过双击该文件打开命令行的方式启动。</p>
+					<p>（不建议将启动内存设置到你设备总内存的1/3以上，这可能导致计算机过热或者整体效能下降）修改参数后保存。并将后缀名从.txt改成<span class="bold">.bat</span>（无视Windows的提示），然后你就得到了一个命令行文件，Windows默认图标是齿轮与窗口的组合。至此Windows服务端控制台系统就搭建好了，服务器可以通过双击该文件打开命令行的方式启动。</p>
 
 					<div class="sever"></div>
 

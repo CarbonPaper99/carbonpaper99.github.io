@@ -144,9 +144,11 @@ Caused by: java.lang.UnsupportedClassVersionError: my/welcome/Main has been comp
 ... > 正确用法：/tp <玩家> X Y Z
 </code></pre>
 
-					<p>不难发现，在控制台输入指令时</p>
+					<p>不难发现，在控制台输入能作用于实体的指令时，不指定对象是无法执行的，这是因为控制台本身不能算作实体，自然无法对自身进行有关实体的命令执行。所以需要记得的是：</p>
 
 					<p><span class="bold underline">控制台使用有实体效应的指令时，必须指定对象。</span></p>
+
+					<p>实体效应的命令有许多，例如 <code>/give , /effect , /tp , /kill , ...</code></p>
 
 					<p>综上即为控制台的基本概念。</p>
 
@@ -154,7 +156,7 @@ Caused by: java.lang.UnsupportedClassVersionError: my/welcome/Main has been comp
 
 					<h3>2.1 服务端文件的修改，参数的配置等技巧</h3>
 
-					<p>上面关于日志信息的辨识和读取技巧提到了logs文件夹，logs文件夹只是服务端程序文件中的单个文件夹。服务端完整程序含有21文件，完整的结构如下面：</p>
+					<p>上面关于日志信息的辨识和读取技巧提到了logs文件夹，logs文件夹只是服务端程序文件中的单个文件夹。服务端完整程序含有21个文件（夹），完整的结构如下：</p>
 
 <pre class="yaml"><code>- /logs #日志
 - /plugins #插件 (!)
@@ -165,7 +167,7 @@ Caused by: java.lang.UnsupportedClassVersionError: my/welcome/Main has been comp
 - paper.yml # paperspigot的配置文件 (!)
 - spigot.yml # spigot的原生配置文件
 - bukkit.yml # bukkit的原生配置文件 (!)
-- ops.json # 最高级管理员名单
+- ops.json # 超级管理员名单
 - usercache.json # 用户的杂项数据
 - server.properties # 服务器基础项参数配置文件 (!)
 - help.yml # 帮助文档
@@ -313,6 +315,7 @@ lore:
 					
 					<p>在YAML文件中，<span class="bold">冒号前面的内容称作参数键（key），冒号后面的内容称作参数值（value）</span>。由此不难看出YAML依然是和Properties相近的标记语言，都是以“键:值”为基础进行标记的语法。这种语法中，数值有四种基本类型：</p>
 
+
 					<ul>
 						<li>以整数或小数组成的数字值（例如1、4、1.5、3.1415926等值）</li>
 						<li>以true/false标记出“是/否”的布尔值（boolean）（true代表是，false代表否）</li>
@@ -320,9 +323,39 @@ lore:
 						<li>以横杠开头，换行代表下一行，可以多行叠加的字符串组或者是数组（数组参数键: - "数组的第一行"\换行 - "数组的第二行"）</li>
 					</ul>
 
+<pre><code>YAML的参数键:YAML的参数值</code></pre>
+
 					<p>由于YAML依然以英文为基础，所以所有关于语法有关的字符标点都应当由英文字符代替，不可使用中文的全半角字符。</p>
 
-<pre><code>YAML的参数键:YAML的参数值</code></pre>
+					<p class="quotes">请注意，一般的YAML文件中，参数键和参数值除了括号外还需一个空格隔开，如： <code>key[冒号：][空格]value</code></p>
+
+					<div class="sever"></div>
+
+					<h4>O3 JSON文件</h4>
+
+					<p>JSON语言是一种用于标记配置的语言，JSON文件的后缀名即为 <code>.json</code>在Minecraft中，JSON格式的文件用来标记配置的情况屡见不鲜。JSON文件的行文较为复杂，在这里仅需认识，后文将多加讲解。摘抄一部分的JSON文件行文格式如下：</p>
+
+<pre><code>// JSON文件的注释以双右斜杠开头，书写时可省略缩进
+// 对象JSON结构：
+{"firstName": "Brett", "lastName": "McLaughlin"} 
+
+// 数组JSON结构：
+{ 
+	"people":
+	[ 
+		{
+			"firstName": "Brett",            
+			"lastName":"McLaughlin"        
+		},      
+		{        
+			"firstName":"Jason",
+			"lastName":"Hunter"
+		}
+	]
+}
+</code></pre>
+
+					<div class="sever"></div>
 
 					<p>编辑完毕后，通常要检查文件的编码（Encode）是否吻合。计算机根据不同的编码对非英文字符进行转化识别。如果编码出现问题，配置文件会出现非英文字符（包括中文及其标点）变成乱码，而导致前功尽弃。我们在选择编码时可以对照下表进行选择。（更改文件编码可以在Notepad++中点击编码，再点击转向UTF-8或ANSI）</p>
 
@@ -352,7 +385,7 @@ lore:
 
 					<h4>O1 超级管理员</h4>
 
-					<p>即OP（亦称为Operators，操作员），是一种高于普通玩家的权限等级，此类玩家可以使用大量非常规指令，如服务器排错、作弊、修改等类型指令。OP玩家所能获取到的最大权限限度可以在server_properties.json中进行设定。将一名玩家设定为操作员，输入：</p>
+					<p>即OP（亦称为Operator，操作员），是一种高于普通玩家的权限等级，此类玩家可以使用大量非常规指令，如服务器排错、作弊、修改等类型指令。OP玩家所能获取到的最大权限限度可以在server_properties.json中进行设定。将一名玩家设定为操作员，输入：</p>
 
 					<pre><code>/op <玩家></code></pre>
 
