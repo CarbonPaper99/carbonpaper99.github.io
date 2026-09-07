@@ -105,15 +105,19 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 .post-pagination svg { stroke-width: 2.6; }
 
 
-.image-zoom { display: block; background: none; border: 0; padding: 0; margin: 1rem 0; cursor: zoom-in; line-height: 0; }
+.image-zoom { display: block; position: relative; overflow: hidden; background: none; border: 0; padding: 0; margin: 1rem 0; cursor: zoom-in; line-height: 0; }
 .image-zoom img { display: block; }
-.image-zoom:hover img { opacity: .92; }
+.image-zoom::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, .14); transform: scaleX(0); transform-origin: left center; transition: transform .25s ease; pointer-events: none; }
+.image-zoom:hover::after { transform: scaleX(1); }
 .image-zoom:focus-visible { outline: 2px solid #002095; outline-offset: 2px; }
+.post-figure { margin: 1.25rem 0; }
+.post-figure .image-zoom { margin: 0; }
+.image-caption { display: block; margin-top: .5rem; font-size: .78rem; color: var(--muted); text-align: center; }
 .lightbox { position: fixed; inset: 0; background: rgba(0, 0, 0, .84); display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 2rem; }
 .lightbox[hidden] { display: none; }
 .lightbox img { max-width: 100%; max-height: calc(100vh - 5rem); border-radius: 4px; box-shadow: 0 12px 40px rgba(0, 0, 0, .5); }
-.lightbox-close { position: absolute; top: 1.25rem; right: 1.5rem; width: 2.6rem; height: 2.6rem; border: 0; background: rgba(255, 255, 255, .14); color: #fff; font-size: 1.5rem; line-height: 1; border-radius: 999px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s ease; }
-.lightbox-close:hover { background: rgba(255, 255, 255, .26); }
+.lightbox-close { position: absolute; top: 1.25rem; right: 1.5rem; width: 2.6rem; height: 2.6rem; border: 0; background-color: rgba(255, 255, 255, .14); background-image: linear-gradient(rgba(255, 255, 255, .26), rgba(255, 255, 255, .26)); background-repeat: no-repeat; background-origin: border-box; background-clip: border-box; background-size: 0% 100%; background-position: left center; color: #fff; font-size: 1.5rem; line-height: 1; border-radius: 999px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background-size .25s ease, color .2s ease; }
+.lightbox-close:hover { background-size: 100% 100%; }
 
 
 .notfound { text-align: center; padding: 4rem 0; }
@@ -144,19 +148,27 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 .fortune.is-rejected .fortune-label, .fortune.is-rejected .fortune-num { color: #fff; }
 .fortune.is-accepted .fortune-actions, .fortune.is-rejected .fortune-actions { opacity: 0; pointer-events: none; }
 .fortune-actions { display: flex; justify-content: flex-end; gap: .6rem; margin-top: 1.1rem; transition: opacity .3s ease; }
-.fortune-btn { font-family: inherit; font-weight: 800; font-size: .9rem; letter-spacing: .06em; padding: .45rem 1.05rem; border-radius: 4px; cursor: pointer; transition: transform .18s ease, background-color .18s ease, color .18s ease, box-shadow .18s ease; }
-.fortune-btn:hover { transform: translateY(-2px); }
-.fortune-btn:active { transform: translateY(0); }
-.fortune-accept { background: #000; color: #fff; border: 2px solid #000; }
-.fortune-accept:hover { background: #262626; box-shadow: 0 4px 14px rgba(0, 0, 0, .28); }
-.fortune-reject { background: transparent; color: #000; border: 2px solid #000; }
-.fortune-reject:hover { background: #f1f1f1; box-shadow: 0 4px 14px rgba(0, 0, 0, .14); }
-
-
-.fortune-btn { transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
-.fortune-btn:hover, .fortune-btn:active { transform: none; box-shadow: none; }
-.fortune-accept:hover { background: transparent; color: #000; }
-.fortune-reject:hover { background: #000; color: #fff; }
+.fortune-btn {
+  font-family: inherit;
+  font-weight: 800;
+  font-size: .9rem;
+  letter-spacing: .06em;
+  padding: .45rem 1.05rem;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: transparent;
+  background-image: linear-gradient(#000, #000);
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-clip: border-box;
+  background-size: 0% 100%;
+  background-position: left center;
+  transition: background-size .25s ease, color .25s ease, border-color .25s ease;
+}
+.fortune-reject { color: #000; border: 2px solid #000; }
+.fortune-reject:hover { color: #fff; background-size: 100% 100%; }
+.fortune-accept { color: #fff; border: 2px solid #000; background-size: 100% 100%; background-position: right center; }
+.fortune-accept:hover { color: #000; background-size: 0% 100%; }
 .fortune-body { max-height: 7rem; overflow: hidden; transition: opacity .3s ease, transform .3s ease, max-height .4s ease; }
 .fortune-result { min-height: 0; max-height: 0; overflow: hidden; transition: opacity .35s ease, transform .35s ease, max-height .4s ease; }
 .fortune-actions { max-height: 3rem; overflow: hidden; transition: opacity .3s ease, max-height .4s ease; }
@@ -208,10 +220,11 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 .fortune.is-idle .fortune-head { margin-bottom: .6rem; }
 .fortune.is-drawn .fortune-draw,
 .fortune.is-accepted .fortune-draw,
-.fortune.is-rejected .fortune-draw { display: block; max-height: 0; border-width: 0; opacity: 0; pointer-events: none; padding-top: 0; padding-bottom: 0; }
+.fortune.is-rejected .fortune-draw { display: none; }
 
 .fortune-draw {
   display: inline-block;
+  overflow: hidden;
   min-width: 12rem;
   margin: 0;
   text-align: center;
@@ -220,14 +233,19 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
   font-weight: 800;
   letter-spacing: .18em;
   color: #9a3b2e;
-  background: transparent;
+  background-color: transparent;
   border: 2px solid #000;
   border-radius: 4px;
   padding: .45rem 1.6rem;
-  margin: 0;
   cursor: pointer;
-  transition: color .2s ease, background-color .2s ease, border-color .2s ease,
+  background-image: linear-gradient(#000, #000);
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-clip: border-box;
+  background-size: 0% 100%;
+  background-position: left center;
+  transition: color .25s ease, background-size .25s ease, border-color .25s ease,
               max-height .4s ease, opacity .3s ease, padding .4s ease;
 }
-.fortune-draw:hover, .fortune-draw:focus-visible { background: #000; color: #fff; }
+.fortune-draw:hover, .fortune-draw:focus-visible { color: #fff; background-size: 100% 100%; }
 .fortune-draw:focus-visible { outline: 2px solid #9a3b2e; outline-offset: 2px; }
