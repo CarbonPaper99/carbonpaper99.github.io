@@ -26,7 +26,8 @@
 <input type="search" id="search-input" placeholder="Search anything U want..." autocomplete="off" aria-label="搜索文章">
 <div class="search-results" id="search-results" hidden></div>
 </div>
-<nav><a href="/">首页</a><a href="/archive.html">归档</a><a href="/about.html">关于</a><a href="/gallery.html">图库</a></nav>
+<nav><a href="/">首页</a><a href="/archive.html">归档</a><a href="/about.html">关于</a><a href="/gallery.html">图库</a><button type="button" class="nav-projects" aria-expanded="false" aria-controls="projects-panel">我的项目</button></nav>
+<section id="projects-panel" class="projects-panel" aria-label="我的项目"><div class="projects-col"><h3>交互艺术</h3><ul><li><a href="#">彭水2000</a></li><li><a href="#">Frutiger Aero Box</a></li><li><a href="#">中山大学影像计划</a></li><li><a href="#">其他原型设计及作品</a></li></ul></div><div class="projects-col"><h3>天气技术栈</h3><ul><li><a href="#">风暴角数据栈</a></li><li><a href="#">风暴信息系统</a></li></ul></div><div class="projects-col"><h3>游戏娱乐</h3><ul><li><a href="#">原型设计</a></li><li><a href="#">MOD开发</a></li></ul></div><div class="projects-col"><h3>杂七杂八</h3><ul><li><a href="#">专业课数据库</a></li><li><a href="#">我在中大 I'm in SYSU</a></li><li><a href="#">其他性质的过往作品</a></li></ul></div></section>
 </div></header>
 <main class="container"><article class="post"><h1 class="page-title">你好，世界</h1><div class="page-meta">2026 年 9 月 6 日</div><div class="post-content"><p>欢迎来到<strong>Riverflow 江流</strong>。</p>
 <p>这是一个由 Deepseek Flash V4 &amp; Vision 经由Codex从零搭建的 Markdown 静态博客。托管在Github Pages服务上。当前页面所展示的虽然是静态页面，但其前期渲染工作已在我的电脑上完成。</p>
@@ -63,9 +64,13 @@ greet('世界');</code></pre>
 </ol>
 <hr>
 <p>感谢阅读。</p></div><div class="tags"><span class="tag">入门</span><span class="tag">示例</span></div></article><nav class="post-pagination" aria-label="文章导航"><a class="pagination-up" href="/" aria-label="返回首页"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polyline points="5 12 12 5 19 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="pagination-row"><span class="pagination-link pagination-prev is-disabled" aria-disabled="true"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polyline points="12 19 5 12 12 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>前一章节</span></span><a class="pagination-archive" href="/archive.html">归档</a><span class="pagination-link pagination-next is-disabled" aria-disabled="true"><span>下一章节</span><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polyline points="12 5 19 12 12 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div><div class="post-pagination-note">群山，夏日，与奔涌的激流。</div></nav></main>
-<footer class="site-footer"><div class="container">Riverflow · 江流我心 · Copyright © 2026 All rights reserved.</div></footer>
+<footer class="site-footer"><div class="container">
+Riverflow · 江流我心 · Copyright © 2026 All rights reserved.
+<div class="footer-meta">Vibe Coding with <a class="footer-link" href="https://www.deepseek.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 2l2 5.8L20 10l-6 2.2L12 18l-2-5.8L4 10l6-2.2L12 2z" fill="currentColor"/><path d="M19 15l.7 2.1L22 18l-2.3.9L19 21l-.7-2.1L16 18l2.3-.9L19 15z" fill="currentColor"/></svg><strong>deepseek-v4 flash.</strong></a> 项目由 <a class="footer-link" href="https://carbonpaper99.github.io" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z" fill="currentColor"/></svg><strong>GitHub Pages</strong></a> 托管。</div>
+</div></footer>
 <script>window.__POSTS__ = [{"title":"你好，世界","date":"2026 年 9 月 6 日","tags":"入门 示例","excerpt":"江流宛转绕芳甸，月照花林皆似霰。","url":"/post/hello-world/hello-world.html"}];</script>
 
+<script src="/assets/js/nav.js" defer></script>
 <script src="/assets/js/search.js" defer></script>
 
 </body>

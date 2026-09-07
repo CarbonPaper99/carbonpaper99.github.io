@@ -310,3 +310,30 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
 /* Gallery filter grid crossfade */
 .gl-grid { transition: opacity .18s ease, transform .18s ease; }
 .gl-grid.is-fading { opacity: 0; transform: translateY(6px); }
+
+
+/* ===== Projects dropdown nav ===== */
+.site-header .container { position: relative; }
+.nav-projects { margin-left: auto; font-family: inherit; font-size: 1rem; line-height: inherit; color: var(--muted); background: none; border: 0; padding: 0; margin: 0; cursor: pointer; transition: color .2s ease; }
+.nav-projects:hover { color: #002095; }
+.nav-projects.is-open { color: var(--text); font-weight: 700; }
+.projects-panel { position: absolute; top: calc(100% + .35rem); left: 0; right: 0; z-index: 40; background: #f2f2f2; padding: 1.4rem 1.5rem 1.6rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 1.6rem 2.2rem; box-shadow: 0 4px 14px rgba(118, 118, 118, .10), 0 18px 46px rgba(118, 118, 118, .24); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .22s ease, transform .22s ease, visibility 0s linear .22s; }
+.projects-panel.is-open { opacity: 1; visibility: visible; transform: none; transition: opacity .22s ease, transform .22s ease; }
+.projects-col h3 { margin: 0 0 .7rem; font-size: .82rem; font-weight: 800; letter-spacing: .18em; }
+.projects-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .4rem; }
+.projects-col a { color: var(--muted); text-decoration: none; font-size: .9rem; }
+.projects-col a:hover { color: #002095; }
+@media (max-width: 640px) {
+  .projects-panel { grid-template-columns: 1fr 1fr; padding: 1.1rem 1.2rem 1.3rem; }
+}
+
+
+/* Footer meta second line */
+.site-footer .footer-meta { margin-top: .5rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .5rem; }
+.footer-link { display: inline-flex; align-items: center; gap: .28rem; color: var(--muted); font-weight: 400; text-decoration: none; transition: color .2s ease; }
+.footer-link svg { flex: none; }
+.footer-link:hover { color: #002095; }
+
+/* Page banner (pure image strip) */
+.page-banner { display: block; margin: 0 0 1.75rem; }
+.page-banner img { display: block; width: 100%; height: auto; }

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>关于 · Riverflow · 江流 · 个人博客</title>
+<title>关于江流 · Riverflow · 江流 · 个人博客</title>
 <link rel="icon" type="image/svg+xml" href="/shortcut.svg?v=2">
 <link rel="icon" type="image/png" href="/shortcut.png?v=2">
 <link rel="shortcut icon" type="image/png" href="/shortcut.png?v=2">
@@ -26,13 +26,29 @@
 <input type="search" id="search-input" placeholder="Search anything U want..." autocomplete="off" aria-label="搜索文章">
 <div class="search-results" id="search-results" hidden></div>
 </div>
-<nav><a href="/">首页</a><a href="/archive.html">归档</a><a href="/about.html" class="active" aria-current="page">关于</a><a href="/gallery.html">图库</a></nav>
+<nav><a href="/">首页</a><a href="/archive.html">归档</a><a href="/about.html" class="active" aria-current="page">关于</a><a href="/gallery.html">图库</a><button type="button" class="nav-projects" aria-expanded="false" aria-controls="projects-panel">我的项目</button></nav>
+<section id="projects-panel" class="projects-panel" aria-label="我的项目"><div class="projects-col"><h3>交互艺术</h3><ul><li><a href="#">彭水2000</a></li><li><a href="#">Frutiger Aero Box</a></li><li><a href="#">中山大学影像计划</a></li><li><a href="#">其他原型设计及作品</a></li></ul></div><div class="projects-col"><h3>天气技术栈</h3><ul><li><a href="#">风暴角数据栈</a></li><li><a href="#">风暴信息系统</a></li></ul></div><div class="projects-col"><h3>游戏娱乐</h3><ul><li><a href="#">原型设计</a></li><li><a href="#">MOD开发</a></li></ul></div><div class="projects-col"><h3>杂七杂八</h3><ul><li><a href="#">专业课数据库</a></li><li><a href="#">我在中大 I'm in SYSU</a></li><li><a href="#">其他性质的过往作品</a></li></ul></div></section>
 </div></header>
-<main class="container"><article class="post"><h1 class="page-title">关于</h1><div class="post-content"><p>这里是关于页面。</p>
-<p>这个博客由一个小型的静态站点生成器驱动，主题可以在 config.json 中切换。</p></div></article></main>
-<footer class="site-footer"><div class="container">Riverflow · 江流我心 · Copyright © 2026 All rights reserved.</div></footer>
+<main class="container"><article class="post"><div class="page-banner"><img src="/img/aboutbanner.png" alt="" loading="lazy" decoding="async"></div><h1 class="page-title">关于江流</h1><div class="post-content"><p>欢迎来到<strong>江流 Riverflow</strong>！这是来自一位边缘人的小博客。</p>
+<p>借助Vibe Coding和廉价的Token套餐，2026年9月6日，这个博客由一个Agent生成的小型的静态站点生成器驱动，主要使用Node.js搭建，并具有完整的样式与控件框架。</p>
+<p><strong>江流并不是我第一个博客</strong>，早在2017年，我粗略地使用过HTML+CSS的技术搭建过静态的博客内容，不过作为前自动化时代，如果你不懂得使用响应式框架和更加后端的管理技术，设计与运维一个完全平面的博客是十分困难的。</p>
+<p>很快技术栈就全面转型了，几乎没有人愿意再手写繁杂的前端，前端有一点点死了。</p>
+<p><strong>于是利用Hugo的第二代森林小屋上线了。</strong>我们可以照猫画虎地找一个template套在博客的白板上，但对于我而言，这仅仅是一个博客，很静态，很枯燥，写些文字，我开始想，有什么东西不能够替代它呢？</p>
+<p>第三个发现远比想象的更快到来，Codex为主的Vibe Coding很快席卷了这个世界。一瞬间，最普通的人也能用静态的网页搭建复杂的应用程式和实现复杂的效果，打破面前这堵墙，似乎不再是特别难的事情了。</p>
+<p>我们周围的一切东西都在享受巨大的AI红利，Riverflow也是基于这个想法初创而来。</p>
+<p>未来一段时间，这里的东西会越来越多，我希望我的创作能帮助到所有有需要的人。</p>
+<p>私域流量销声匿迹的当下，一片属于自己的天地永远值得珍藏。</p>
+<hr>
+<h2>关于博主</h2>
+<p>男的。2006~</p>
+<p>中山大学 经济学类 2024级本科生</p></div></article></main>
+<footer class="site-footer"><div class="container">
+Riverflow · 江流我心 · Copyright © 2026 All rights reserved.
+<div class="footer-meta">Vibe Coding with <a class="footer-link" href="https://www.deepseek.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 2l2 5.8L20 10l-6 2.2L12 18l-2-5.8L4 10l6-2.2L12 2z" fill="currentColor"/><path d="M19 15l.7 2.1L22 18l-2.3.9L19 21l-.7-2.1L16 18l2.3-.9L19 15z" fill="currentColor"/></svg><strong>deepseek-v4 flash.</strong></a> 项目由 <a class="footer-link" href="https://carbonpaper99.github.io" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z" fill="currentColor"/></svg><strong>GitHub Pages</strong></a> 托管。</div>
+</div></footer>
 <script>window.__POSTS__ = [{"title":"你好，世界","date":"2026 年 9 月 6 日","tags":"入门 示例","excerpt":"江流宛转绕芳甸，月照花林皆似霰。","url":"/post/hello-world/hello-world.html"}];</script>
 
+<script src="/assets/js/nav.js" defer></script>
 <script src="/assets/js/search.js" defer></script>
 
 </body>
