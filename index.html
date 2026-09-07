@@ -12,8 +12,45 @@
 <link rel="stylesheet" href="/assets/fonts.css">
 <link rel="stylesheet" href="/assets/base.css">
 <link rel="stylesheet" href="/assets/paper.css">
+
+<style>
+  #splash {
+    position: fixed; inset: 0; z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    background: #fff;
+    transition: opacity .4s ease;
+  }
+  #splash.is-done { opacity: 0; pointer-events: none; }
+  body.splash-lock { overflow: hidden; }
+  .splash-logo {
+    position: relative;
+    width: min(256px, 62vw);
+    aspect-ratio: 1;
+  }
+  .splash-logo img {
+    position: absolute; inset: 0;
+    border-radius: 0;
+    width: 100%; height: 100%;
+    object-fit: contain;
+    will-change: clip-path;
+  }
+  .splash-logo .unloaded { z-index: 1; }
+  .splash-logo .loaded {
+    z-index: 2;
+    clip-path: inset(0 100% 0 0);
+  }
+</style>
+
 </head>
 <body>
+
+<div id="splash" role="status" aria-label="页面加载中">
+  <div class="splash-logo">
+    <img class="unloaded" src="/img/riverflow_unloaded.png" alt="" decoding="async">
+    <img class="loaded" id="splash-blue" src="/img/riverflow_loaded.png" alt="" draggable="false" decoding="async">
+  </div>
+</div>
+
 <header class="site-header"><div class="container">
 <a class="site-title" href="/"><img class="site-logo" src="/shortcut.svg?v=2" alt="Riverflow logo"><span>Riverflow</span></a>
 <div class="site-search" role="search">
@@ -30,12 +67,61 @@
 <article class="post-item">
 <h2><a href="/post/hello-world.html">你好，世界</a></h2>
 <div class="post-meta">2026 年 9 月 6 日</div>
-<p class="post-excerpt">这是博客的第一篇示例文章，演示 Markdown 的常见写法。</p>
+<p class="post-excerpt">江流宛转绕芳甸，月照花林皆似霰。</p>
 <div class="tags"><span class="tag">入门</span><span class="tag">示例</span></div>
 </article></main>
 <footer class="site-footer"><div class="container">Riverflow · 江流我心 · Copyright © 2026 All rights reserved.</div></footer>
-<script>window.__POSTS__ = [{"title":"你好，世界","date":"2026 年 9 月 6 日","tags":"入门 示例","excerpt":"这是博客的第一篇示例文章，演示 Markdown 的常见写法。","url":"/post/hello-world.html"}];</script>
+<script>window.__POSTS__ = [{"title":"你好，世界","date":"2026 年 9 月 6 日","tags":"入门 示例","excerpt":"江流宛转绕芳甸，月照花林皆似霰。","url":"/post/hello-world.html"}];</script>
 <script src="/fortunes.js" defer></script>
 <script src="/assets/search.js" defer></script>
+
+<script>
+(function () {
+  var overlay = document.getElementById('splash');
+  var blue = document.getElementById('splash-blue');
+  if (!overlay || !blue) return;
+  var LOAD_MS = 700;    // 蓝色从左到右覆盖的动画时长
+  var HOLD_MS = 80;     // 全蓝停留
+  var FADE_MS = 400;    // 整层淡出
+  var MAX_WAIT_MS = 4200; // 资源兜底：最迟多久开始收尾
+  var ready = false, swept = false, ended = false, raf = 0, timer = 0;
+
+  function ease(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+  function update(p) {
+    blue.style.clipPath = 'inset(0 ' + ((1 - p) * 100).toFixed(3) + '% 0 0)';
+  }
+  function maybeEnd() {
+    if (!swept || ended) return;   // 纯装饰：扫完即淡出，不等真实资源
+    ended = true;
+    timer = setTimeout(function () {
+      overlay.classList.add('is-done');
+      document.body.classList.remove('splash-lock');
+      overlay.setAttribute('aria-hidden', 'true');
+      setTimeout(function () { overlay.style.visibility = 'hidden'; }, FADE_MS + 80);
+    }, HOLD_MS);
+  }
+  function play() {
+    var start = performance.now();
+    function step(now) {
+      var t = Math.min(1, (now - start) / LOAD_MS);
+      update(ease(t));
+      if (t < 1) raf = requestAnimationFrame(step);
+      else { swept = true; update(1); maybeEnd(); }
+    }
+    raf = requestAnimationFrame(step);
+  }
+  window.addEventListener('load', function () { ready = true; maybeEnd(); });
+  window.addEventListener('pageshow', function (e) { if (e.persisted) { ready = true; maybeEnd(); } });
+  setTimeout(function () { ready = true; maybeEnd(); }, MAX_WAIT_MS);
+
+  document.body.classList.add('splash-lock');
+  var imgs = Array.prototype.slice.call(overlay.querySelectorAll('img'));
+  var decodes = imgs.map(function (img) {
+    return img.decode ? img.decode().catch(function () {}) : Promise.resolve();
+  });
+  Promise.all(decodes).then(play);
+})();
+</script>
+
 </body>
 </html>
